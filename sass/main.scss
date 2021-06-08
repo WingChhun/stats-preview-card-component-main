@@ -1,18 +1,8 @@
 @import './colors.scss';
-
-// Normalized CSS
-
-html,
-body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 62.5%;
-  font: inherit;
-}
+@import './mixins.scss';
+@import './normalize.scss';
 
 body {
-  // Use REM for font-sizing
   font-family: Inter;
 }
 
@@ -20,9 +10,16 @@ body {
   background-color: $color-bg;
   width: 100vw;
   height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include for-phone-only {
+    width: auto;
+    height: 720px;
+    padding: 88px 24px;
+  }
 }
 
 #preview-card {
@@ -35,19 +32,42 @@ body {
   display: flex;
   flex-direction: row;
 
+  @include for-phone-only {
+    flex-direction: column-reverse;
+    max-height: 720px;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 327px;
+  }
+
   .preview-card__left {
     padding: 0px 71.5px;
     padding-top: 71px;
     padding-bottom: 59px;
     height: 100%;
     flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    @include for-phone-only {
+      padding: 0px 31.5px;
+      padding-top: 40px;
+      padding-bottom: 32px;
+      width: auto;
+      text-align: center;
+    }
     h1 {
       margin: 0;
       margin-bottom: 25px;
       font-weight: bold;
       font-size: 36px;
       line-height: 44px;
+      @include for-phone-only {
+        margin-bottom: 16px;
+        font-size: 28px;
+        line-height: 32px;
+      }
       span {
         color: $color-primary;
       }
@@ -66,12 +86,21 @@ body {
       list-style: none;
       display: flex;
       padding-left: 0;
+      @include for-phone-only {
+        margin-top: 40px;
+        flex-direction: column;
+      }
       li {
         display: flex;
         flex-direction: column;
 
         &:not(:last-child) {
           margin-right: 63px;
+
+          @include for-phone-only {
+            margin-right: 0;
+            margin-bottom: 25px;
+          }
         }
 
         p:first-child {
@@ -99,12 +128,24 @@ body {
 
   .preview-card__right {
     flex-basis: 50%;
-    background-image: url('../images//desktop-header.jpg');
+    background-image: url('../images/desktop-header.jpg');
     width: 100%;
     height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include for-phone-only {
+      flex-basis: 50%;
+      background-image: url('../images/mobile-header.jpg');
+      height: auto;
+      background-position: center;
+    }
+
     position: relative;
   }
   .preview-card__overlay {
+    height: 100%;
     position: absolute;
     mix-blend-mode: multiply;
     opacity: 0.75;

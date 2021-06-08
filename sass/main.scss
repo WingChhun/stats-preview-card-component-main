@@ -86,9 +86,11 @@ body {
       list-style: none;
       display: flex;
       padding-left: 0;
+      align-self: flex-start;
       @include for-phone-only {
         margin-top: 40px;
         flex-direction: column;
+        align-self: center;
       }
       li {
         display: flex;

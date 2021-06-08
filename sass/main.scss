@@ -1,0 +1,110 @@
+@import './colors.scss';
+
+// Normalized CSS
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+body {
+  // Use REM for font-sizing
+  font-size: 62.5%;
+  font-family: Inter;
+}
+
+.bg-container {
+  background-color: $color-bg;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#preview-card {
+  color: $color-white;
+  background-color: $card-bg;
+  width: 100%;
+  max-width: 1110px;
+  display: flex;
+  flex-direction: row;
+  height: 446px;
+  padding: 0rem 7.15rem;
+  padding-top: 7.1rem;
+  padding-bottom: 5.9rem;
+
+  .preview-card__left {
+    height: 100%;
+    flex-basis: 50%;
+    h1 {
+      margin: 0;
+      margin-bottom: 25px;
+      font-weight: bold;
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+      span {
+        color: $color-primary;
+      }
+    }
+    p {
+      opacity: 0.75;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+    }
+
+    .statistics {
+      list-style: none;
+      display: flex;
+      li {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:last-child) {
+          margin-right: 63px;
+        }
+
+        p:first-child {
+          margin: 0;
+          font-family: Inter;
+          font-weight: 700;
+          line-height: 2.9rem;
+          font-size: 2.4rem;
+          color: white;
+          opacity: 1;
+          margin-bottom: 2px;
+        }
+
+        p:last-child {
+          margin: 0;
+          font-family: Lexend Deca;
+          font-size: 1.2rem;
+          line-height: 2.5rem;
+          letter-spacing: 1px;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  .preview-card__right {
+    flex-basis: 50%;
+  }
+}
+
+// Starter CSS
+.attribution {
+  font-size: 1.1rem;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
